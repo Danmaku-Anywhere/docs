@@ -23,7 +23,7 @@ export default defineConfig({
       lastUpdated: false,
       editLink: {
         baseUrl:
-          'https://github.com/Danmaku-Anywhere/danmaku-anywhere/edit/master/docs/',
+          'https://github.com/Danmaku-Anywhere/docs/edit/master/',
       },
       social: [
         {

@@ -5,14 +5,15 @@
   "private": true,
   "description": "",
   "author": "Mr-Quin",
-  "repository": "https://github.com/Danmaku-Anywhere/danmaku-anywhere",
+  "repository": "https://github.com/Danmaku-Anywhere/docs",
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync-changelog": "node scripts/sync-changelog.ts Danmaku-Anywhere/danmaku-anywhere src/content/docs/change-log.mdx"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
