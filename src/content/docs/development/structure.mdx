@@ -21,7 +21,6 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
 
 <FileTree>
 
-- docs/ - 文档（本站，Astro / Starlight）
 - app/
   - **web/** - Web应用，基于 Kazumi 规则的看番网站 (Angular)
 - backend/
@@ -35,12 +34,12 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
         - player/ - 弹幕播放器
       - popup/ - 弹出窗口
     - e2e/ - Playwright e2e 测试与开发浏览器启动脚本
-  - danmaku-converter/ - 弹幕格式解析与归一化
+  - danmaku-model/ - 共享数据模型（弹幕、剧集、季度等）与 XML 转换，扩展与 Web 应用共用
+  - extension-protocol/ - 扩展与 Web 应用之间的消息格式
   - danmaku-engine/ - 弹幕渲染器
-  - danmaku-provider/ - 与第三方弹幕源 API 交互
-  - web-scraper/ - 网页/媒体元数据抓取
+  - danmaku-provider/ - 与第三方弹幕源 API 交互，仅供扩展使用
+  - web-scraper/ - 网页/媒体元数据抓取，仅供扩展使用
   - bangumi-api/ - Bangumi API 类型与 schema
-  - result/ - `Result<T, E>` 类型工具
   - integration-policy/ - 站点集成策略 schema
 - package.json
 
