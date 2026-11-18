@@ -1,6 +1,6 @@
 # Danmaku Anywhere docs
 
-The documentation site for [Danmaku Anywhere](https://github.com/Danmaku-Anywhere/danmaku-anywhere), built with Astro and Starlight and served at https://danmaku.weeblify.app from the `danmaku-anywhere-docs` Cloudflare Worker.
+The documentation site for [Danmaku Anywhere](https://github.com/Danmaku-Anywhere/danmaku-anywhere), built with Astro and Starlight and served at https://docs.danmaku.weeblify.app from the `danmaku-anywhere-docs` Cloudflare Worker.
 
 ```sh
 pnpm install
