@@ -11,8 +11,8 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
 
 ## 开发环境
 
-- `Node.js` >= 24
-- `pnpm` >= 10（请使用 `pnpm`，不要使用 `npm` 或 `yarn`）
+- `Node.js` 版本以扩展仓库的 `mise.toml` 为准。
+- `pnpm` 版本以扩展仓库 `package.json` 中的 `packageManager` 字段为准。请使用 `pnpm`，不要使用 `npm` 或 `yarn`。
 - Chrome（开发浏览器扩展时由 `dev:browser` 自动启动）
 
 ## 项目结构
@@ -21,10 +21,6 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
 
 <FileTree>
 
-- app/
-  - **web/** - Web应用，基于 Kazumi 规则的看番网站 (Angular)
-- backend/
-  - proxy/ - Cloudflare Worker，与弹弹play API交互、AI 服务、代理弹幕源目录
 - packages/
   - **danmaku-anywhere/** - 扩展主体
     - src/
@@ -39,7 +35,6 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
   - danmaku-engine/ - 弹幕渲染器
   - danmaku-provider/ - 与第三方弹幕源 API 交互，仅供扩展使用
   - web-scraper/ - 网页/媒体元数据抓取，仅供扩展使用
-  - bangumi-api/ - Bangumi API 类型与 schema
   - integration-policy/ - 站点集成策略 schema
 - package.json
 
@@ -53,7 +48,7 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
    ```bash
    pnpm install
    ```
-2. 构建共享包（扩展、Web 应用、Worker 都依赖于已构建的 `packages/*`）
+2. 在扩展仓库根目录构建共享包
    ```bash
    pnpm build:packages
    ```
@@ -114,21 +109,10 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
 
 输出在 `packages/danmaku-anywhere/package`。
 
+### 相关仓库
 
-### Web App
+[Web 应用仓库](https://github.com/Danmaku-Anywhere/web)包含一个基于 Kazumi 规则的 Angular 看番网站和 `bangumi-api` 包。网站需要搭配浏览器扩展才能使用全部功能。
 
-Web 应用位于 `app/web`，依赖浏览器扩展才能完整工作。
+[后端仓库](https://github.com/Danmaku-Anywhere/backend)包含一个 Cloudflare Worker，负责与弹弹play API 交互、提供 AI 服务，以及代理弹幕源目录。
 
-```bash
-cd app/web
-pnpm start
-```
-
-### Backend (Cloudflare Worker)
-
-后端位于 `backend/proxy`。
-
-```bash
-cd backend/proxy
-pnpm dev
-```
+开发说明请参阅两个仓库各自的 README。

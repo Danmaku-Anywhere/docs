@@ -19,15 +19,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: 26
+          cache: pnpm
 
       - name: Regenerate the changelog
         run: node scripts/sync-changelog.ts Danmaku-Anywhere/danmaku-anywhere src/content/docs/change-log.mdx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check and build
+        run: pnpm build
 
       - name: Open or update the PR
         uses: peter-evans/create-pull-request@v7
@@ -37,4 +48,5 @@ jobs:
           commit-message: "(docs) sync the changelog from extension releases"
           title: "(docs) sync the changelog from extension releases"
           body: Generated from the published releases of Danmaku-Anywhere/danmaku-anywhere.
+          add-paths: src/content/docs/change-log.mdx
           delete-branch: true
