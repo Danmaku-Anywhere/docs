@@ -2,11 +2,7 @@
 
 The documentation site for [Danmaku Anywhere](https://github.com/Danmaku-Anywhere/danmaku-anywhere), built with Astro and Starlight and served at https://docs.danmaku.weeblify.app from the `danmaku-anywhere-docs` Cloudflare Worker.
 
-```sh
-pnpm install
-pnpm dev     # local site
-pnpm build   # astro check, then the production build in dist/
-```
+Run it locally with `pnpm install` and `pnpm dev`.
 
 Cloudflare builds a preview for every PR and deploys `master`.
 
