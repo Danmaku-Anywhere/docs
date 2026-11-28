@@ -11,8 +11,8 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
 
 ## 开发环境
 
-- `Node.js` >= 24
-- `pnpm` >= 10（请使用 `pnpm`，不要使用 `npm` 或 `yarn`）
+- `Node.js` 版本以扩展仓库的 `mise.toml` 为准。
+- `pnpm` 版本以扩展仓库 `package.json` 中的 `packageManager` 字段为准。请使用 `pnpm`，不要使用 `npm` 或 `yarn`。
 - Chrome（开发浏览器扩展时由 `dev:browser` 自动启动）
 
 ## 项目结构
@@ -48,7 +48,7 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
    ```bash
    pnpm install
    ```
-2. 构建共享包（扩展依赖于已构建的 `packages/*`）
+2. 在扩展仓库根目录构建共享包
    ```bash
    pnpm build:packages
    ```
@@ -111,6 +111,8 @@ https://github.com/Danmaku-Anywhere/danmaku-anywhere
 
 ### 相关仓库
 
-[Web 应用仓库](https://github.com/Danmaku-Anywhere/web)包含基于 Kazumi 规则的 Angular 看番网站和 `bangumi-api` 包，网站依赖浏览器扩展才能完整工作，开发说明见该仓库的 README。
+[Web 应用仓库](https://github.com/Danmaku-Anywhere/web)包含一个基于 Kazumi 规则的 Angular 看番网站和 `bangumi-api` 包。网站需要搭配浏览器扩展才能使用全部功能。
 
-[后端仓库](https://github.com/Danmaku-Anywhere/backend)包含负责与弹弹play API 交互、提供 AI 服务和代理弹幕源目录的 Cloudflare Worker，开发说明见该仓库的 README。
+[后端仓库](https://github.com/Danmaku-Anywhere/backend)包含一个 Cloudflare Worker，负责与弹弹play API 交互、提供 AI 服务，以及代理弹幕源目录。
+
+开发说明请参阅两个仓库各自的 README。

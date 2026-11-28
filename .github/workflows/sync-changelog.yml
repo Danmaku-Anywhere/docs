@@ -1,9 +1,10 @@
 name: Sync Changelog
 
 # Rebuilds the changelog page from the extension's published releases in the
-# main repo, and opens or updates one PR when the page changed. PRs opened with
-# GITHUB_TOKEN don't start other workflows, so PR checks don't run on it; the
-# Cloudflare preview build still does.
+# main repo, and opens or updates one PR when the page changed. PR checks on a
+# PR opened with GITHUB_TOKEN are queued until someone approves them. The title
+# check fails on the generated title because it has no task id; that check is
+# not required in this repo.
 
 on:
   schedule:
@@ -19,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - uses: pnpm/action-setup@v4
 
@@ -46,4 +49,5 @@ jobs:
           commit-message: "(docs) sync the changelog from extension releases"
           title: "(docs) sync the changelog from extension releases"
           body: Generated from the published releases of Danmaku-Anywhere/danmaku-anywhere.
+          add-paths: src/content/docs/change-log.mdx
           delete-branch: true
