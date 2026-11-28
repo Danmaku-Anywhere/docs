@@ -1,10 +1,9 @@
 name: Sync Changelog
 
 # Rebuilds the changelog page from the extension's published releases in the
-# main repo, and opens or updates one PR when the page changed. PR checks on a
-# PR opened with GITHUB_TOKEN are queued until someone approves them. The title
-# check fails on the generated title because it has no task id; that check is
-# not required in this repo.
+# main repo, and opens or updates one PR when the page changed. PRs opened with
+# GITHUB_TOKEN don't start other workflows, so PR checks don't run on it; the
+# Cloudflare preview build still does.
 
 on:
   schedule:
